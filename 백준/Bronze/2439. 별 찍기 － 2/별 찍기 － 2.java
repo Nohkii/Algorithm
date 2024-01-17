@@ -6,16 +6,18 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int num = Integer.parseInt(br.readLine());
+        StringBuilder sb = new StringBuilder();
         for (int i = 1; i <= num; i++) {
             for (int j = 1; j <= num - i; j++) {
-                bw.write(" ");
+                sb.append(" ");
             }
             for (int k = 0; k < i; k++) {
-                bw.write("*");
+                sb.append("*");
             }
             if (i == num) break;
-            bw.newLine();
+            sb.append(System.lineSeparator());
         }
+        bw.write(sb.toString());
         bw.flush();
         bw.close();
         br.close();
