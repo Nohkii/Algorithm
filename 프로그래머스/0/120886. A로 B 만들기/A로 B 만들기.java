@@ -1,14 +1,20 @@
 import java.util.*;
 class Solution {
+    static int answer = 1;
     public int solution(String before, String after) {
-        int answer = 1;
         char[] afterAry = after.toCharArray();
         char[] beforeAry = before.toCharArray();
-        Arrays.sort(afterAry);
-        Arrays.sort(beforeAry);
-        for(int i = 0; i < afterAry.length; i ++){
-            if(afterAry[i] != beforeAry[i]) return 0;
-        }
+        getResult(afterAry, beforeAry);
         return answer;
+    }
+    static void getResult(char[] aary, char[] bary){
+        Arrays.sort(aary);
+        Arrays.sort(bary);
+        for(int i = 0; i < aary.length; i ++){
+            if(aary[i] != bary[i]){
+                answer = 0;
+                break;
+            }
+        }
     }
 }
